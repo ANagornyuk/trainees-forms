@@ -1,0 +1,57 @@
+body {
+  /*text-align: center;*/
+  background: #c1bdba;
+  padding: 5px 30px 15px 30px;
+  /*padding-bottom: 15px;*/
+  width: 480px;
+  margin: auto;
+  margin-top: 100px;
+}
+
+input {
+  width: 154px;
+  height: 25px;
+  margin: 25px 0 0 0;
+  padding-left: 10px;
+  background-color: #24323d;
+  border: solid 1px white;
+}
+
+.fname {
+  margin-right: 15px;
+}
+
+.lname {
+  margin-right: 0;
+}
+
+.email, .password {
+  width: 340px;
+}
+
+#forms {
+  background: #24323d;
+  padding-left: 63px;
+  padding-right: 63px;
+  padding-bottom: 30px;
+
+}
+
+#log-in {
+  display: none;
+}
+
+.button {
+  border: 0;
+  width: 354px;
+  height: 50px;
+  font-size: 20px;
+  color: white;
+  background: #1ab188;
+}
+
+.text {
+  text-align: center;
+  color: white;
+  font-size: 28px;
+}
