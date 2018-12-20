@@ -1,9 +1,10 @@
 body {
   /*text-align: center;*/
   background: #c1bdba;
+  color: white;
   padding: 5px 30px 15px 30px;
   /*padding-bottom: 15px;*/
-  width: 480px;
+  width: 411px;
   margin: auto;
   margin-top: 100px;
 }
@@ -11,10 +12,34 @@ body {
 input {
   width: 154px;
   height: 25px;
-  margin: 25px 0 0 0;
+  margin: 30px 0 0 0;
   padding-left: 10px;
   background-color: #24323d;
   border: solid 1px white;
+  color: white;
+}
+
+#sign-up, #log-in {
+  display: none;
+}
+
+#sign-up.active, #log-in.active {
+  display: none;
+}
+
+.sign-up-tab, .log-in-tab {
+  float: left;
+  width: 175px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 15px 0;
+  text-align: center;
+  background-color: #43505a;
+  color: white;
+}
+
+.sign-up-tab.active, .log-in-tab.active {
+  background-color: #1ab188;
 }
 
 .fname {
@@ -25,20 +50,17 @@ input {
   margin-right: 0;
 }
 
-.email, .password {
+.email, .password, .login {
   width: 340px;
 }
 
 #forms {
   background: #24323d;
-  padding-left: 63px;
-  padding-right: 63px;
-  padding-bottom: 30px;
-
+  padding: 0 30px 30px 30px;
 }
 
 #log-in {
-  display: none;
+  /*display: none;*/
 }
 
 .button {
