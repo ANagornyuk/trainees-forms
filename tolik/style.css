@@ -4,9 +4,10 @@ body {
   color: white;
   padding: 5px 30px 15px 30px;
   /*padding-bottom: 15px;*/
-  width: 411px;
+  width: 475px;
   margin: auto;
   margin-top: 100px;
+  box-sizing: border-box;
 }
 
 input {
@@ -57,6 +58,7 @@ input {
 #forms {
   background: #24323d;
   padding: 0 30px 30px 30px;
+  box-sizing: border-box;
 }
 
 #log-in {
@@ -70,10 +72,24 @@ input {
   font-size: 20px;
   color: white;
   background: #1ab188;
+  font-family: Courier, monospace;
+  font-weight: 600;
 }
 
 .text {
   text-align: center;
   color: white;
   font-size: 28px;
+}
+
+::-webkit-input-placeholder:last-child {
+  color: red;
+}
+
+form input:-internal-autofill-selected {
+  background-color: blue !important;
+}
+
+span {
+  color: red;
 }
