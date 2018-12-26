@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Simple web-form</title>
+	<link rel="stylesheet" type="text/css" href="styles/style.css">
+	<script src="scripts/script.js"></script>
+</head>
+<body>
+	<div id="logForm">
+		<button type="button" id="signup" class="longButton checked" 
+				onclick="ShowSignUp()">
+			Sign Up
+		</button>
+		<button type="button" id="login" class="longButton unchecked"
+				onclick="ShowLogin()">
+			Log In
+		</button>
+		<form id="signUpForm" name="signUpForm" class="visible" 
+			  action="" method="">
+			<legend>Sign Up for Free</legend>
+			<input type="text" id="fname" class="smallInput"
+				   name="fname" placeholder="First Name*" required/>
+			<input type="text" id="lname" class="smallInput"
+				   name="lname" placeholder="Last Name*" required/>
+			<input type="email" id="email" class="input" 
+				   name="email" placeholder="Email Address*" required/>
+			<input type="password"
+					id="password"
+					class="input tooltiptext" 
+				   	name="password"
+				   	placeholder="Set A Password*" 
+				   	onfocus="ShowTip(pswtip)" 
+				   	oninput="ValidatePassword()"
+				   	
+				    title="kkk" 
+				    required/>
+			<span id="pswtip" class="hidden">
+				Password length should be more then 6 characters.
+			</span>
+			<input type="password"
+				   id="passwordcfm"
+				   class="input"
+				   name="passwordcfm"
+				   placeholder="Confirm password*"
+				   oninput="MatchPassword()"
+				   onfocus="ShowTip(pswcfmtip)" 
+				   required/>
+			<span id="pswcfmtip" class="hidden">
+				Passwords do not match.
+			</span>
+			<input type="submit" id="submit" class="input"
+			       name="submit" value="GET STARTED" />
+		</form>
+		<form id="loginForm" name="loginForm" class="hidden"
+			  action="" method="">
+			<legend>Log in</legend>
+			<input type="email" id="email2" class="input"
+				   name="email" placeholder="Email" required/>
+			<input type="password" id="password2" class="input"
+				   name="password" placeholder="Password" required/>
+			<input type="submit" id="submit" class="input"
+				   name="submit" value="Log in" />
+		</form>
+	</div>
+	<div id="centered">
+		<a id="link" href="login-form.html">Login form</a>
+	</div>
+	
+</body>
+</html>
