@@ -1,0 +1,95 @@
+body {
+  /*text-align: center;*/
+  background: #c1bdba;
+  color: white;
+  padding: 5px 30px 15px 30px;
+  /*padding-bottom: 15px;*/
+  width: 475px;
+  margin: auto;
+  margin-top: 100px;
+  box-sizing: border-box;
+}
+
+input {
+  width: 154px;
+  height: 25px;
+  margin: 30px 0 0 0;
+  padding-left: 10px;
+  background-color: #24323d;
+  border: solid 1px white;
+  color: white;
+}
+
+#sign-up, #log-in {
+  display: none;
+}
+
+#sign-up.active, #log-in.active {
+  display: none;
+}
+
+.sign-up-tab, .log-in-tab {
+  float: left;
+  width: 175px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 15px 0;
+  text-align: center;
+  background-color: #43505a;
+  color: white;
+}
+
+.sign-up-tab.active, .log-in-tab.active {
+  background-color: #1ab188;
+}
+
+.fname {
+  margin-right: 15px;
+}
+
+.lname {
+  margin-right: 0;
+}
+
+.email, .password, .login {
+  width: 340px;
+}
+
+#forms {
+  background: #24323d;
+  padding: 0 30px 30px 30px;
+  box-sizing: border-box;
+}
+
+#log-in {
+  /*display: none;*/
+}
+
+.button {
+  border: 0;
+  width: 354px;
+  height: 50px;
+  font-size: 20px;
+  color: white;
+  background: #1ab188;
+  font-family: Courier, monospace;
+  font-weight: 600;
+}
+
+.text {
+  text-align: center;
+  color: white;
+  font-size: 28px;
+}
+
+::-webkit-input-placeholder:last-child {
+  color: red;
+}
+
+form input:-internal-autofill-selected {
+  background-color: blue !important;
+}
+
+span {
+  color: red;
+}
