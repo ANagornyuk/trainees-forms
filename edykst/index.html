@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Form</title>
+    <link rel="stylesheet" href="css/login_form.css">
+</head>
+<body>
+<div id="div_grad_login" class="div_grad">
+    <form action="#" method="post">
+        <div>
+            <a href="#div_grad_signup" class="input_button input_sign input_active">Sing Up</a>
+            <a href="#div_grad_login" class="input_button input_login input_inactive">Log In</a>
+        </div>
+        <div id="block_login">
+            <p></p>
+            <div>
+                <input class="input_text" type="text" required/>
+                <span class="l1" data-star=" *">Email Address</span>
+            </div>
+            <div>
+                <input class="input_text" type="password" required/>
+                <span class="l1" data-star=" *">Password</span>
+            </div>
+        </div>
+        <div>
+            <input class="input_button input_start" type="submit" value="LOG IN"/>
+        </div>
+    </form>
+</div>
+<div id="div_grad_signup" class="div_grad">
+    <form action="#" method="post">
+        <div>
+            <a href="#div_grad_signup" class="input_button input_sign input_inactive">Sing Up</a>
+            <a href="#div_grad_login" class="input_button input_login input_active">Log In</a>
+        </div>
+        <div id="block_sign">
+            <p>Sing Up for Free</p>
+            <div>
+                <input class="input_text input_fn" type="text" required/>
+                <span class="l1" data-star=" *">First Name</span>
+                <input class="input_text input_ln" type="text" required/>
+                <span class="l2" data-star=" *">Last Name</span>
+            </div>
+            <div>
+                <input class="input_text" type="text" required/>
+                <span class="l1" data-star=" *">Email Address</span>
+            </div>
+            <div>
+                <input class="input_text" type="password" required/>
+                <span class="l1" data-star=" *">Set A Password</span>
+            </div>
+        </div>
+        <div>
+            <input class="input_button input_start" type="submit" value="GET STARTED"/>
+        </div>
+    </form>
+</div>
+<p class="req">* Indicates required field</p>
+</body>
+</html>
