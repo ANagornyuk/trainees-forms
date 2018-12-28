@@ -18,12 +18,36 @@
 		<form id="signUpForm" name="signUpForm" class="visible" 
 			  action="" method="">
 			<legend>Sign Up for Free</legend>
-			<input type="text" id="fname" class="smallInput"
-				   name="fname" placeholder="First Name*" required/>
-			<input type="text" id="lname" class="smallInput"
-				   name="lname" placeholder="Last Name*" required/>
-			<input type="email" id="email" class="input" 
-				   name="email" placeholder="Email Address*" required/>
+			<input type="text" 
+				   id="fname"
+				   class="smallInput"
+				   name="fname"
+				   placeholder="First Name*"
+				   oninput="ValidateName(fname)" 
+				   onblur="HideTip(nametip)"
+				   required/>
+			<input type="text"
+				   id="lname"
+				   class="smallInput"
+				   name="lname"
+				   placeholder="Last Name*"
+				   oninput="ValidateName(lname)"
+				   onblur="HideTip(nametip)"
+				   required/>
+			<span id="nametip" class="hidden">
+				Name can consist ONLY a non-digit character( one or more).
+			</span>
+			<input type="email"
+				   id="email"
+				   class="input" 
+				   name="email"
+				   placeholder="Email Address*"
+				   oninput="ValidateEmail(email)"
+				   onblur="OnEmailLeaveFocus(email)" 
+				   required/>
+			<span id="emailtip" class="hidden">
+				Some text.
+			</span>
 			<input type="password"
 					id="password"
 					class="input tooltiptext" 
@@ -31,7 +55,7 @@
 				   	placeholder="Set A Password*" 
 				   	onfocus="ShowTip(pswtip)" 
 				   	oninput="ValidatePassword()"
-				   	
+				   	onblur="HideTip(pswtip)" 
 				    title="kkk" 
 				    required/>
 			<span id="pswtip" class="hidden">
@@ -58,7 +82,7 @@
 				   name="email" placeholder="Email" required/>
 			<input type="password" id="password2" class="input"
 				   name="password" placeholder="Password" required/>
-			<input type="submit" id="submit" class="input"
+			<input type="submit" id="submit_login" class="input"
 				   name="submit" value="Log in" />
 		</form>
 	</div>

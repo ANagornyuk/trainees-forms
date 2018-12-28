@@ -44,6 +44,10 @@
     font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
     color: #FFFAF0;	
 }
+.input:focus {
+	outline: none !important;
+	border-color: green;
+}
 #submit {
   	border: 2px solid #0099ff;
     background-color: #0099ff;
