@@ -42,7 +42,7 @@ function ValidateEmail(id){
 		id.style.borderColor = "yellow";
 	}
 	if (emailre.test(id.value) == true){
-		//HideTip(nametip);
+		HideTip(emialtip);
 		id.style.borderColor = "green";
 	}
 }
@@ -50,7 +50,7 @@ function ValidateEmail(id){
 function OnEmailLeaveFocus (id) {
 	let emailre = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 	if (emailre.test(id.value) != true){
-		ShowTip(emailtip);
+		ShowTip(emailtip, "Email is not valid");
 		id.style.borderColor = "red";
 	}
 	if (emailre.test(id.value) == true){
@@ -64,29 +64,49 @@ function OnEmailLeaveFocus (id) {
 
 }
 
-function ValidatePassword(){
+function ValidatePassword(id){
 	let pswtip = document.getElementById('pswtip');
 	let regexp = /\w{6,}/;
-	
+	let strongRegex =
+	 new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})");
 	pswtip.className = "visible";
-	if (regexp.test(document.getElementById('password').value)){
+	if (strongRegex.test(id.value)){
 		pswtip.className = "hidden";
+		id.style.borderColor = "green";
 	}
-	if (document.getElementById('passwordcfm').value != null){
+	if (strongRegex.test(id.value) != true){
+		id.style.borderColor = "yellow";
+	}
+	if (document.getElementById('passwordcfm').value != ""){
 		MatchPassword();		
 	}
+	if (id.value == "")
+		id.style.borderColor = "initial";
 }
 function MatchPassword(){
 	let pswcfmtip = document.getElementById('pswcfmtip');
 	let passwordcfm = document.getElementById('passwordcfm');
 	let password = document.getElementById('password');
-	pswcfmtip.className = "visible";
+	//pswcfmtip.className = "visible";
 	if (password.value == passwordcfm.value){
 		pswcfmtip.className = "hidden";
+		passwordcfm.style.borderColor = "green";
+	}
+	if (password.value != passwordcfm.value){
+		pswcfmtip.className = "visible";
+		passwordcfm.style.borderColor = "red";
+	}
+	if (passwordcfm.value == ""){
+		passwordcfm.style.borderColor = "initial";
+		pswcfmtip.className = "hidden";
+
 	}
 }
-function ShowTip(id){
+function ShowTip(id, text){
 	id.className = "visible";
+	if (text != undefined) {
+		id.textContent = text;
+	}
 
 }
 function HideTip(id){

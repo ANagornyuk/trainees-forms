@@ -53,26 +53,31 @@
 					class="input tooltiptext" 
 				   	name="password"
 				   	placeholder="Set A Password*" 
-				   	onfocus="ShowTip(pswtip)" 
-				   	oninput="ValidatePassword()"
+				   	onfocus="ValidatePassword(password)" 
+				   	oninput="ValidatePassword(password)"
 				   	onblur="HideTip(pswtip)" 
 				    title="kkk" 
 				    required/>
 			<span id="pswtip" class="hidden">
-				Password length should be more then 6 characters.
+				<ul>
+					<li>Password should contain at least one CAPITAL letter</li>
+					<li>Password should contain at least one lowercase letter</li>
+					<li>Password should contain at least one number</li>
+					<li>Password length should be more then 8 characters</li>
+				</ul>
+				
 			</span>
 			<input type="password"
 				   id="passwordcfm"
 				   class="input"
 				   name="passwordcfm"
 				   placeholder="Confirm password*"
-				   oninput="MatchPassword()"
-				   onfocus="ShowTip(pswcfmtip)" 
+				   oninput="MatchPassword()" 
 				   required/>
 			<span id="pswcfmtip" class="hidden">
 				Passwords do not match.
 			</span>
-			<input type="submit" id="submit" class="input"
+			<input type="submit" id="submit" class="input submit"
 			       name="submit" value="GET STARTED" />
 		</form>
 		<form id="loginForm" name="loginForm" class="hidden"
@@ -82,7 +87,7 @@
 				   name="email" placeholder="Email" required/>
 			<input type="password" id="password2" class="input"
 				   name="password" placeholder="Password" required/>
-			<input type="submit" id="submit_login" class="input"
+			<input type="submit" id="submit_login" class="input submit"
 				   name="submit" value="Log in" />
 		</form>
 	</div>
