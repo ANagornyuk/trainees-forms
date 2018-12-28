@@ -42,7 +42,7 @@ function ValidateEmail(id){
 		id.style.borderColor = "yellow";
 	}
 	if (emailre.test(id.value) == true){
-		HideTip(emialtip);
+		HideTip(emailtip);
 		id.style.borderColor = "green";
 	}
 }
