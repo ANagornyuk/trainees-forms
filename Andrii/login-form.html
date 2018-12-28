@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login form with jQuery</title>
+	<link rel="stylesheet" type="text/css" href="styles/form-styling.css"></link>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$("#logForm").css({
+				"background-color": "DarkSlateGray",
+				"max-width": "400px",
+				"margin": "auto",
+				"color": "#FFFAF0",
+				"padding": "20px"
+			});
+			$("legend").addClass("legend");
+			$("#email, #password").addClass("input");
+			$("#submit").addClass("submit");
+			// alert("hello!");
+		});
+	</script>
+</head>
+<body>
+	<div id="logForm">
+		<form id="loginForm"
+			  name="loginForm"
+			  class="hidden"
+			  action=""
+			  method="">
+			<legend>Log in</legend>
+			<input type="email"
+				   id="email"
+				   
+				   name="email"
+				   placeholder="Email"
+				   required/>
+			<input type="password"
+				   id="password"
+				   
+				   name="password"
+				   placeholder="Password"
+				   required/>
+			<input type="submit"
+				   id="submit"
+				   
+				   name="submit"
+				   value="Log in"/>
+		</form>
+	</div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+.legend {
+	text-align: center;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size: 30px;
+	margin: 10px 0;
+}
+
+.input {
+	width: 100%;
+  	margin: 10px 0;
+  	display: inline-block;
+  	box-sizing: border-box;
+  	padding: 12px;
+  	border: 2px solid #FFFAF0;
+    border-radius: 5px;
+    background-color: DarkSlateGray;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    color: #FFFAF0;	
+}
+.submit {
+	width: 100%;
+  	margin: 10px 0;
+  	padding: 15px;
+  	display: inline-block;
+  	border: 2px solid #0099ff;
+    background-color: #0099ff;
+    font-size: 30px;
+    color: #FFFAF0;
+    border-radius: 5px;
+}
