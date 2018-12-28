@@ -1,7 +1,7 @@
 body {
-  background: #c1bdba;
-  color: white;
+  /*text-align: center;*/
   padding: 5px 30px 15px 30px;
+  /*padding-bottom: 15px;*/
   width: 475px;
   margin: auto;
   margin-top: 100px;
@@ -13,9 +13,10 @@ input {
   height: 25px;
   margin: 30px 0 0 0;
   padding-left: 10px;
-  background-color: #24323d;
-  border: solid 1px white;
-  color: white;
+}
+#tabs {
+  display: block;
+  height: 110px;
 }
 
 #sign-up, #log-in {
@@ -26,34 +27,32 @@ input {
   display: block;
 }
 
-.sign-up-tab, .log-in-tab {
+#sign-up-tab, #log-in-tab {
   float: left;
   width: 175px;
   margin-top: 30px;
   margin-bottom: 30px;
   padding: 15px 0;
   text-align: center;
-  background-color: #43505a;
-  color: white;
 }
 
-.sign-up-tab.active, .log-in-tab.active {
-  background-color: #1ab188;
+#sign-up-tab.active, #log-in-tab.active {
+  background: green;
 }
 
-.fname {
+#fname {
   margin-right: 15px;
 }
 
-.lname {
+#lname {
   margin-right: 0;
 }
 
-.email, .password, .login {
+#email, #password, #login, #login-password {
   width: 340px;
 }
 
-#forms {
+#second-forms {
   height: 430px;
   background: #24323d;
   padding: 0 30px 30px 30px;
@@ -61,27 +60,42 @@ input {
 }
 
 #log-in {
-  /*display: none;*/
 }
 
-.button {
+#button, #login-button {
   border: 0;
   width: 354px;
   height: 50px;
   font-size: 20px;
-  color: white;
-  background: #1ab188;
   font-family: Courier, monospace;
   font-weight: 600;
 }
 
 .text {
   text-align: center;
-  color: white;
   font-size: 28px;
 }
 
 .next-form {
   height: 0;
   text-align: center;
+}
+
+.background-green {
+  background: green;
+}
+
+.background-yellow {
+  background: yellow;
+}
+
+.not-active {
+  background: red;
+}
+
+[class^="err-"] {
+
+  display: block;
+  background-color: #80141c;
+  margin-bottom: 10px;
 }
