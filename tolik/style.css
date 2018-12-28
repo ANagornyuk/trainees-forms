@@ -57,7 +57,7 @@ input {
 }
 
 #forms {
-  height: 430px;
+  min-height: 430px;
   background: #24323d;
   padding: 0 30px 30px 30px;
   box-sizing: border-box;
