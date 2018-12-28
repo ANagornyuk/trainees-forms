@@ -5,8 +5,14 @@
   <title>Tolik's form</title>
   <meta charset="UTF-8"/>
   <link rel="stylesheet" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+  <script type="text/javascript" src="form.js"></script>
 </head>
 <body>
+<div class="next-form">
+  Next Form >
+</div>
 <div id="forms">
   <div class="tabs">
     <div class="sign-up-tab active">
@@ -16,27 +22,30 @@
       Log In
     </div>
   </div>
-  <div id="sign-up active">
+  <div id="sign-up" class="active">
     <div class="text">Sign Up for Free</div>
     <form method="post">
-      <input type="text" name="firstname" maxlength="30" placeholder="First Name *" required class="fname">
-      <input type="text" name="lastname" maxlength="30" placeholder='Last Name *' required class="lname">
+      <input class="fname" type="text" name="firstname" title="Username with 2-20 chars" maxlength="30"
+             placeholder="First Name *" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$" required>
+      <input class="lname" type="text" name="lastname" title="Username with 2-20 chars" maxlength="30"
+             placeholder='Last Name *' pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$" required>
       <br>
-      <input type="email" name="email" placeholder="Email Address *" required class="email">
+      <input class="email" type="email" name="email" placeholder="Email Address *" required>
       <br>
-      <input type="password" name="password" placeholder="Set A Password *" required class="password">
+      <input class="password" type="password" name="password" title="Password (UpperCase, LowerCase, Number/SpecialChar and min 8 Chars)
+" placeholder="Set A Password *" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required>
       <br>
-      <input type="submit" value="GET STARTED" class="button">
+      <input class="button" type="submit" value="GET STARTED">
     </form>
   </div>
   <div id="log-in">
     <div class="text">Log In</div>
     <form method="post">
-      <input type="text" name="login" maxlength="30" placeholder="Login *" required class="login">
+      <input class="login" type="text" name="login" maxlength="30" placeholder="Login *" required>
       <!--<br>-->
-      <input type="password" name="password" placeholder="Password *" required class="password">
+      <input class="password" type="password" name="password" placeholder="Password *" required>
       <br>
-      <input type="submit" value="GET STARTED" class="button">
+      <input class="button" type="submit" value="GET STARTED">
     </form>
   </div>
 </div>
