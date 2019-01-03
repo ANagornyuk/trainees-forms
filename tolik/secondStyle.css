@@ -94,3 +94,9 @@ input {
   background-color: #80141c;
   margin-bottom: 10px;
 }
+
+.home a img {
+  position: absolute;
+  margin-left: -25px;
+  top: 90px;
+}

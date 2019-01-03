@@ -23,8 +23,11 @@ $(document).ready(function () {
   });
 
   // Switch to next form
-  $(".next-form").css('cursor', 'pointer').click(function () {
-    window.location.replace('form.html')
+  // $(".next-form").css('cursor', 'pointer').click(function () {
+  //   window.location.replace('form.html')
+  // });
+  $(".next-form").click(function (event) {
+    $("body").load("form.html");
   });
 
   // Sign Up form Validate

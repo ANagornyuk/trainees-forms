@@ -16,9 +16,13 @@ $(document).ready(function () {
   });
 
   // Swich to next form
-  $(".next-form").css('cursor', 'pointer');
-  $(".next-form").click(function () {
-    window.location.replace('secondForm.html');
+  // $(".next-form").css('cursor', 'pointer').click(function () {
+  //   window.location.replace('secondForm.html');
+  // });
+
+  $(".next-form").click(function (event) {
+    $("body").load("secondForm.html");
   });
+
 
 });
