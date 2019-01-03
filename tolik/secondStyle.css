@@ -100,3 +100,19 @@ input {
   margin-left: -25px;
   top: 90px;
 }
+
+
+body, html {
+  height: 100%;
+}
+
+body {
+  /* The image used */
+  background-image: url("https://sites.google.com/site/prirodanasevseegooglgfgf/_/rsrc/1463456237313/home/priroda_gory_nebo_ozero_oblaka_81150_1920x1080.jpg");
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
