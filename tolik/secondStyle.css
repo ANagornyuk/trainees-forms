@@ -1,7 +1,5 @@
 body {
-  /*text-align: center;*/
   padding: 5px 30px 15px 30px;
-  /*padding-bottom: 15px;*/
   width: 475px;
   margin: auto;
   margin-top: 100px;
@@ -34,6 +32,7 @@ input {
   margin-bottom: 30px;
   padding: 15px 0;
   text-align: center;
+  background: red;
 }
 
 #sign-up-tab.active, #log-in-tab.active {
@@ -87,16 +86,17 @@ input {
 }
 
 .background-yellow {
-  background: yellow;
-}
-
-.not-active {
-  background: red;
+  background: #c5991c;
 }
 
 [class^="err-"] {
-
   display: block;
   background-color: #80141c;
   margin-bottom: 10px;
+}
+
+.home a img {
+  position: absolute;
+  margin-left: -25px;
+  top: 90px;
 }

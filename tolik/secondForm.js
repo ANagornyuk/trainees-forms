@@ -4,10 +4,9 @@ $(document).ready(function () {
   $("#sign-up-tab, #sign-up").addClass('active');
   $("#login-button").addClass('background-green');
   $("#button").addClass('background-yellow');
-  $("#log-in-tab, #sign-up-tab").addClass("not-active");
 
   // Add styles
-  $("body").css({"width": "475px", "background": "blue"});
+  $("body").css({"width": "475px"});
 
   // Top tabs
   $("div#log-in-tab").click(function () {
@@ -24,9 +23,11 @@ $(document).ready(function () {
   });
 
   // Switch to next form
-  $(".next-form").css('cursor', 'pointer');
-  $(".next-form").click(function () {
-    window.location.replace('form.html')
+  // $(".next-form").css('cursor', 'pointer').click(function () {
+  //   window.location.replace('form.html')
+  // });
+  $(".next-form").click(function (event) {
+    $("body").load("form.html");
   });
 
   // Sign Up form Validate
