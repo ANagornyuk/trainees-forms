@@ -86,7 +86,7 @@ input {
 }
 
 .background-yellow {
-  background: yellow;
+  background: #c5991c;
 }
 
 [class^="err-"] {

@@ -6,7 +6,7 @@ $(document).ready(function () {
   $("#button").addClass('background-yellow');
 
   // Add styles
-  $("body").css({"width": "475px", "background": "blue"});
+  $("body").css({"width": "475px"});
 
   // Top tabs
   $("div#log-in-tab").click(function () {
