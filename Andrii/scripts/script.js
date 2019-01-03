@@ -42,7 +42,7 @@ function ValidateEmail(id){
 		id.style.borderColor = "yellow";
 	}
 	if (emailre.test(id.value) == true){
-		HideTip(emialtip);
+		HideTip(emailtip);
 		id.style.borderColor = "green";
 	}
 }
@@ -87,6 +87,7 @@ function MatchPassword(){
 	let pswcfmtip = document.getElementById('pswcfmtip');
 	let passwordcfm = document.getElementById('passwordcfm');
 	let password = document.getElementById('password');
+	let passwords_coincide;
 	//pswcfmtip.className = "visible";
 	if (password.value == passwordcfm.value){
 		pswcfmtip.className = "hidden";
@@ -95,12 +96,14 @@ function MatchPassword(){
 	if (password.value != passwordcfm.value){
 		pswcfmtip.className = "visible";
 		passwordcfm.style.borderColor = "red";
+		passwords_coincide = false;
 	}
 	if (passwordcfm.value == ""){
 		passwordcfm.style.borderColor = "initial";
 		pswcfmtip.className = "hidden";
-
+		passwords_coincide = false;
 	}
+	return passwords_coincide;
 }
 function ShowTip(id, text){
 	id.className = "visible";

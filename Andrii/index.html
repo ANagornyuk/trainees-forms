@@ -1,64 +1,64 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Simple web-form</title>
-	<link rel="stylesheet" type="text/css" href="styles/style.css">
-	<script src="scripts/script.js"></script>
+    <title>Simple web-form</title>
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <script src="scripts/script.js"></script>
 </head>
 <body>
-	<div id="logForm">
-		<button type="button" id="signup" class="longButton checked" 
-				onclick="ShowSignUp()">
-			Sign Up
-		</button>
-		<button type="button" id="login" class="longButton unchecked"
-				onclick="ShowLogin()">
-			Log In
-		</button>
-		<form id="signUpForm" name="signUpForm" class="visible" 
-			  action="" method="">
-			<legend>Sign Up for Free</legend>
-			<input type="text" 
-				   id="fname"
-				   class="smallInput"
-				   name="fname"
-				   placeholder="First Name*"
-				   oninput="ValidateName(fname)" 
-				   onblur="HideTip(nametip)"
-				   required/>
-			<input type="text"
-				   id="lname"
-				   class="smallInput"
-				   name="lname"
-				   placeholder="Last Name*"
-				   oninput="ValidateName(lname)"
-				   onblur="HideTip(nametip)"
-				   required/>
-			<span id="nametip" class="hidden">
+<div id="logForm">
+    <button type="button" id="signup" class="longButton checked"
+            onclick="ShowSignUp()">
+        Sign Up
+    </button>
+    <button type="button" id="login" class="longButton unchecked"
+            onclick="ShowLogin()">
+        Log In
+    </button>
+    <form id="signUpForm" name="signUpForm" class="visible"
+          action="signup.php" method="POST">
+        <legend>Sign Up for Free</legend>
+        <input type="text"
+               id="fname"
+               class="smallInput"
+               name="fname"
+               placeholder="First Name*"
+               oninput="ValidateName(fname)"
+               onblur="HideTip(nametip)"
+               required/>
+        <input type="text"
+               id="lname"
+               class="smallInput"
+               name="lname"
+               placeholder="Last Name*"
+               oninput="ValidateName(lname)"
+               onblur="HideTip(nametip)"
+               required/>
+        <span id="nametip" class="hidden">
 				Name can consist ONLY a non-digit character( one or more).
 			</span>
-			<input type="email"
-				   id="email"
-				   class="input" 
-				   name="email"
-				   placeholder="Email Address*"
-				   oninput="ValidateEmail(email)"
-				   onblur="OnEmailLeaveFocus(email)" 
-				   required/>
-			<span id="emailtip" class="hidden">
+        <input type="email"
+               id="email"
+               class="input"
+               name="email"
+               placeholder="Email Address*"
+               oninput="ValidateEmail(email)"
+               onblur="OnEmailLeaveFocus(email)"
+               required/>
+        <span id="emailtip" class="hidden">
 				Some text.
 			</span>
-			<input type="password"
-					id="password"
-					class="input tooltiptext" 
-				   	name="password"
-				   	placeholder="Set A Password*" 
-				   	onfocus="ValidatePassword(password)" 
-				   	oninput="ValidatePassword(password)"
-				   	onblur="HideTip(pswtip)" 
-				    title="kkk" 
-				    required/>
-			<span id="pswtip" class="hidden">
+        <input type="password"
+               id="password"
+               class="input tooltiptext"
+               name="password"
+               placeholder="Set A Password*"
+               onfocus="ValidatePassword(password)"
+               oninput="ValidatePassword(password)"
+               onblur="HideTip(pswtip)"
+               title="kkk"
+               required/>
+        <span id="pswtip" class="hidden">
 				<ul>
 					<li>Password should contain at least one CAPITAL letter</li>
 					<li>Password should contain at least one lowercase letter</li>
@@ -67,33 +67,42 @@
 				</ul>
 				
 			</span>
-			<input type="password"
-				   id="passwordcfm"
-				   class="input"
-				   name="passwordcfm"
-				   placeholder="Confirm password*"
-				   oninput="MatchPassword()" 
-				   required/>
-			<span id="pswcfmtip" class="hidden">
+        <input type="password"
+               id="passwordcfm"
+               class="input"
+               name="passwordcfm"
+               placeholder="Confirm password*"
+               oninput="MatchPassword()"
+               required/>
+        <span id="pswcfmtip" class="hidden">
 				Passwords do not match.
 			</span>
-			<input type="submit" id="submit" class="input submit"
-			       name="submit" value="GET STARTED" />
-		</form>
-		<form id="loginForm" name="loginForm" class="hidden"
-			  action="" method="">
-			<legend>Log in</legend>
-			<input type="email" id="email2" class="input"
-				   name="email" placeholder="Email" required/>
-			<input type="password" id="password2" class="input"
-				   name="password" placeholder="Password" required/>
-			<input type="submit" id="submit_login" class="input submit"
-				   name="submit" value="Log in" />
-		</form>
-	</div>
-	<div id="centered">
-		<a id="link" href="login-form.html">Login form</a>
-	</div>
-	
+        <input type="submit"
+               id="submit"
+               class="input submit"
+               name="submit"
+               value="GET STARTED"
+               onsubmit="function () {
+                    if (MatchPassword() == false){
+                        preventDefault();
+                       }
+               }"
+        />
+    </form>
+    <form id="loginForm" name="loginForm" class="hidden"
+          action="" method="">
+        <legend>Log in</legend>
+        <input type="email" id="email2" class="input"
+               name="email" placeholder="Email" required/>
+        <input type="password" id="password2" class="input"
+               name="password" placeholder="Password" required/>
+        <input type="submit" id="submit_login" class="input submit"
+               name="submit" value="Log in" />
+    </form>
+</div>
+<div id="centered">
+    <a id="link" href="login-form.html">Login form</a>
+</div>
+
 </body>
 </html>
