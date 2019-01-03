@@ -4,7 +4,6 @@ $(document).ready(function () {
   $("#sign-up-tab, #sign-up").addClass('active');
   $("#login-button").addClass('background-green');
   $("#button").addClass('background-yellow');
-  $("#log-in-tab, #sign-up-tab").addClass("not-active");
 
   // Add styles
   $("body").css({"width": "475px", "background": "blue"});
@@ -24,8 +23,7 @@ $(document).ready(function () {
   });
 
   // Switch to next form
-  $(".next-form").css('cursor', 'pointer');
-  $(".next-form").click(function () {
+  $(".next-form").css('cursor', 'pointer').click(function () {
     window.location.replace('form.html')
   });
 
