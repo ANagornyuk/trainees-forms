@@ -11,9 +11,11 @@
 </head>
 <body>
 
-<button class="button" style="float: top;" onclick="showHide('blok_js')"># add JS/jQuery</button>
-<button class="button" style="float: right;" onclick="showHide('blok_css')"># only CSS</button>
-
+<div id="top_buttons">
+  <button class="button" onclick="showHide('blok_js')"># add JS/jQuery</button>
+  <button class="button" onclick="showHide('blok_css')"># only CSS</button>
+  <button class="button" id="ajax">AJAX</button>
+</div>
 <!--
     Block with styling CSS
 -->
@@ -87,7 +89,7 @@
 <article class="animate" id="blok_js">
 
     <div class="div_block_js">
-        <div class="div_input">
+        <div class="div_input" id="but_js">
             <button class="button input_button input_sign input_inactive"  onclick="showHide('form_sign')">Sing Up</button>
             <button class="button input_button input_login input_active"  onclick="showHide('form_login')">Log In</button>
         </div>
@@ -96,15 +98,15 @@
         <form action="#" method="post" class="valForm" id="form_sign">
             <p>Sing Up for Free</p>
                 <div class="div_input">
-                    <input class="input_text input_fn valid" type="text" id="fn" placeholder="First Name"/>
-                    <input class="input_text input_ln valid" type="text" id="ln" placeholder="Last Name"/>
+                    <input class="input_text input_fn valid" type="text" id="fn_js" placeholder="First Name"/>
+                    <input class="input_text input_ln valid" type="text" id="ln_js" placeholder="Last Name"/>
                 </div>
                 <div class="div_input">
-                    <input class="input_text valid" type="text" id="email" placeholder="Email Address"/>
+                    <input class="input_text valid" type="text" id="email_js" placeholder="Email Address"/>
                 </div>
                 <div class="div_input">
-                    <input class="input_text input_fn valid" type="password" id="pass1" placeholder="Set A Password"/>
-                    <input class="input_text input_ln valid" type="password" id="pass2" placeholder="Confirm Your Password"/>
+                    <input class="input_text input_fn valid" type="password" id="pass1_js" placeholder="Set A Password"/>
+                    <input class="input_text input_ln valid" type="password" id="pass2_js" placeholder="Confirm Your Password"/>
                 </div>
             <div class="div_input">
                 <input class="valBtn input_button input_start" type="submit" value="GET STARTED"/>
@@ -115,10 +117,10 @@
         <form action="#" method="post" class="valForm" id="form_login">
                 <p></p>
                 <div class="div_input">
-                    <input class="input_text valid" type="text" id="login" placeholder="Email Address"/>
+                    <input class="input_text valid" type="text" id="login_js" placeholder="Email Address"/>
                 </div>
                 <div class="div_input">
-                    <input class="input_text valid" type="password" id="pass" placeholder="Password"/>
+                    <input class="input_text valid" type="password" id="pass_js" placeholder="Password"/>
                 </div>
             <div class="div_input" style="height: 35px;"></div>
             <div class="div_input">
@@ -132,6 +134,13 @@
     </div>
 
 </article>
+
+<article class="animate" id="blok_ajax">
+</article>
+
+<script>
+
+</script>
 
 </body>
 </html>

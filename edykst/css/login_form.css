@@ -7,7 +7,8 @@
   padding: 0;
 }
 
-#form_login {
+#form_login,
+#form_login_ajax {
   display: none;
 }
 
@@ -24,6 +25,10 @@
 #div_grad_signup:target,
 #div_grad_login:target {
   display: flex;
+}
+
+#top_buttons {
+  width: -webkit-fill-available;
 }
 
 .button {
