@@ -6,7 +6,8 @@
     <title>My Form</title>
     <link rel="stylesheet" href="css/login_form.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="jq_valid.js"></script>
+    <script src="js/jq_valid.js"></script>
+    <script src="js/main_script.js"></script>
 </head>
 <body>
 
@@ -131,37 +132,6 @@
     </div>
 
 </article>
-
-<script>
-    but_act = document.querySelector('.div_input');
-
-    function showHide(element_id) {
-
-        if(element_id.indexOf('blok') + 1)
-            (element_id !== "blok_js")?(hide_blok = "blok_js"):(hide_blok = "blok_css");
-        else if(element_id.indexOf('form') + 1)
-            if(element_id !== "form_login") {
-                hide_blok = "form_login";
-                but_act.children[0].classList.add("input_inactive");
-                but_act.children[1].classList.add("input_active");
-                but_act.children[0].classList.remove("input_active");
-                but_act.children[1].classList.remove("input_inactive");
-            } else {
-                hide_blok = "form_sign";
-                but_act.children[0].classList.add("input_active");
-                but_act.children[1].classList.add("input_inactive");
-                but_act.children[0].classList.remove("input_inactive");
-                but_act.children[1].classList.remove("input_active");
-            }
-
-        if (document.getElementById(element_id)) {
-            var obj = document.getElementById(element_id);
-            if (obj.style.display !== "block") {
-                obj.style.display = "block";
-                document.getElementById(hide_blok).style.display = "none"}
-            }
-        }
-</script>
 
 </body>
 </html>
