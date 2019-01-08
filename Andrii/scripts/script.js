@@ -115,3 +115,21 @@ function ShowTip(id, text){
 function HideTip(id){
 	id.className = "hidden";
 }
+function Ajax(){
+	alert('Hello');
+	let xhr = new XMLHttpRequest();
+	xhr.open('GET', './checkemail.php');
+	xhr.send();
+	console.log(xhr);
+	xhr.onreadystatechange = function () {
+		const DONE = 4; // readyState 4 means the request is done.
+		const OK = 200; // status 200 is a successful return.
+		if (xhr.readyState === DONE) {
+			if (xhr.status === OK) {
+				console.log(xhr.responseText); // 'This is the output.'
+			} else {
+				console.log('Error: ' + xhr.status); // An error occurred during the request.
+			}
+		}
+	}
+}
