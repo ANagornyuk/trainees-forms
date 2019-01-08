@@ -43,7 +43,7 @@
                name="email"
                placeholder="Email Address*"
                oninput="ValidateEmail(email)"
-               onblur="OnEmailLeaveFocus(email)"
+               onblur="OnEmailLeaveFocus(email), Ajax()"
                required/>
         <span id="emailtip" class="hidden">
 				Some text.
@@ -55,7 +55,7 @@
                placeholder="Set A Password*"
                onfocus="ValidatePassword(password)"
                oninput="ValidatePassword(password)"
-               onblur="HideTip(pswtip), Ajax()"
+               onblur="HideTip(pswtip)"
                title="kkk"
                required/>
         <span id="pswtip" class="hidden">

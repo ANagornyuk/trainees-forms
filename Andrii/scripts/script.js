@@ -118,7 +118,8 @@ function HideTip(id){
 function Ajax(){
 	alert('Hello');
 	let xhr = new XMLHttpRequest();
-	xhr.open('GET', './checkemail.php');
+	let email = document.getElementById('email').value;
+	xhr.open('GET', './checkemail.php?email=' + email);
 	xhr.send();
 	console.log(xhr);
 	xhr.onreadystatechange = function () {
