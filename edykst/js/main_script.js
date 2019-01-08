@@ -49,4 +49,4 @@ $(document).ready(function() {
         $('#blok_ajax').load('form_js.html');
         $('#blok_ajax').css('display', 'block');
     })
-});
+})

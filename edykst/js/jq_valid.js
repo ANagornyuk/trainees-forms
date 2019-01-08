@@ -10,32 +10,16 @@ jQuery(function($) {
         }
     });
 
-    $('#form_sign_ajax').submit(    function(e){
-
-        e.preventDefault();
-        var $form = $(this);
-
-        validate_form_sign();
-        // check if the input is valid
-        if(! $form.valid()) return false;
-
-        $.ajax({
-            type: 'POST',
-            url: 'add.php',
-            data: $('#form').serialize(),
-            success: function(response) {
-                $("#answers").html(response);
-            }
-
-        });
+    $(document).on('submit', '#form_login_ajax', function(event) {
+        if ( validate_form_login('#form_login_ajax') ) {
+            event.preventDefault();
+        }
     });
 
-    $('#form_login_ajax').on('submit', function(event) {
-        event.preventDefault();
-        if ( validate_form_login() ) {
-            return false;
+    $(document).on('submit', '#form_sign_ajax', function(event) {
+        if ( validate_form_sign('#form_sign_ajax') ) {
+            event.preventDefault();
         }
-        // тут ajax запрос
     });
 
     function validate_form_login(form) {
