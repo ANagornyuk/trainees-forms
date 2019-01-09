@@ -139,7 +139,7 @@ function Ajax(){
 	let xhr = new XMLHttpRequest();
 	//let test;
 	let email = document.getElementById('email').value;
-	xhr.open('GET', './checkemail.php?email=' + email, true);
+	xhr.open('GET', './backend/checkemail.php?email=' + email, true);
 	xhr.send();
 	//console.log(xhr);
 	xhr.onreadystatechange = function () {
