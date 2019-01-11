@@ -198,9 +198,7 @@ form#form_login .valid:focus,
 form#form_sign .valid:focus {
   border: 2px solid #2a900c;
 }
-
-form#form_login .error,
-form#form_sign .error {
+.error {
   border: 2px solid red;
 }
 
