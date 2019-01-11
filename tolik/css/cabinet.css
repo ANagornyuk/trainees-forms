@@ -1,0 +1,66 @@
+article {
+  height: auto;
+}
+
+input {
+  width: 250px;
+}
+
+header {
+  margin-bottom: -4px;
+}
+
+.page-title {
+  position: absolute;
+  margin-left: 40%;
+  color: #c0f122;
+}
+
+.edit h2 {
+  margin: 0;
+  text-align: center;
+  font-size: 40px;
+  padding-top: 30px;
+}
+
+#logout .button {
+  /*float: right;*/
+  position: absolute;
+  right: 17%;
+  padding: 9px;
+  font-size: 20px;
+  background: #d9d6e8;
+}
+
+.image-group {
+  float: right;
+  margin: 60px 100px;
+}
+
+.load-image-group {
+  margin-top: 20px;
+}
+
+.image-preview {
+
+}
+
+#preview {
+  width: 450px;
+  height: auto;
+  min-height: 150px;
+  max-height: 350px;
+  object-fit: contain;
+}
+
+.edit-form {
+  margin: 50px 100px;
+  display: inline-block;
+}
+
+.save {
+  padding: 10px;
+  margin-top: 20px;
+  font-size: 20px;
+  background: #d9d6e8;
+}
