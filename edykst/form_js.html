@@ -1,0 +1,44 @@
+    <div class="div_block_js">
+        <div class="div_input" id="but_ajax">
+            <button class="button input_button input_sign input_inactive"  onclick="showHide('form_sign_ajax')">Sing Up</button>
+            <button class="button input_button input_login input_active"  onclick="showHide('form_login_ajax')">Log In</button>
+        </div>
+
+        <!-- Form for Signin -->
+        <form action="#" method="post" class="valForm" id="form_sign_ajax">
+            <p>Sing Up for Free</p>
+            <div class="div_input">
+                <input class="input_text input_fn valid" type="text" id="fn" placeholder="First Name"/>
+                <input class="input_text input_ln valid" type="text" id="ln" placeholder="Last Name"/>
+            </div>
+            <div class="div_input">
+                <input class="input_text valid" type="text" id="email" placeholder="Email Address"/>
+            </div>
+            <div class="div_input">
+                <input class="input_text input_fn valid" type="password" id="pass1" placeholder="Set A Password"/>
+                <input class="input_text input_ln valid" type="password" id="pass2" placeholder="Confirm Your Password"/>
+            </div>
+            <div class="div_input">
+                <input class="valBtn input_button input_start" type="submit" value="GET STARTED"/>
+            </div>
+        </form>
+
+        <!-- Form for Login -->
+        <form action="#" method="post" class="valForm" id="form_login_ajax">
+            <p></p>
+            <div class="div_input">
+                <input class="input_text valid" type="text" id="login_ajax" placeholder="Email Address"/>
+            </div>
+            <div class="div_input">
+                <input class="input_text valid" type="password" id="pass_ajax" placeholder="Password"/>
+            </div>
+            <div class="div_input" style="height: 35px;"></div>
+            <div class="div_input">
+                <input class="valBtn input_button input_start" type="submit" id="send" value="LOG IN" />
+            </div>
+        </form>
+
+        <p class="req no_pad">
+            * Indicates required field
+        </p>
+    </div>
