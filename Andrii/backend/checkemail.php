@@ -1,10 +1,9 @@
 <?php
 
-require 'evn_vars.php';
-require 'db-conn.php';
+require 'database_connection.php';
 
 //echo("Hello from php file!");
-$conn = db_conn($servername, $username, $password, $dbname, $table);
+//$conn = db_conn($servername, $username, $password, $dbname, $table);
 $select = $conn->query("SELECT Email FROM users;")->fetchAll();
 foreach ($select as $row) {
     //echo $row[0]."\n";
