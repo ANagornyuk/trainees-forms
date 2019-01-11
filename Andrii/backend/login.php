@@ -10,7 +10,7 @@ $select = $stmt->fetch();
 if (password_verify($_POST['password'], $select[0])) {
     //echo "You successfully loged in!";
     session_start();
-    $_SESSION["usernane"] = $select[1];
+    $_SESSION["username"] = $select[1];
     //print($_SESSION["usernane"]);
     header('Location: ../userpage.html.php');
 } else {

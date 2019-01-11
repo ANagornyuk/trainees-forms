@@ -15,7 +15,7 @@ $insert->execute(array(
 //print ($_POST['fname'].$_POST['lname'].$_POST['email'].$_POST['password']);
 //echo "You successfully signed up!";
 session_start();
-$_SESSION["usernane"] = $_POST['fname'];
+$_SESSION["username"] = $_POST['fname'];
 header('Location: ../userpage.html.php');
 
 
