@@ -1,7 +1,7 @@
 <?php
 
 
-if (isset($_FILES) && isset($_FILES['image'])) {
+if (isset($_FILES) && !empty($_FILES['image']['name'])) {
 
   $image = $_FILES['image'];
 
@@ -17,7 +17,9 @@ if (isset($_FILES) && isset($_FILES['image'])) {
       chmod($imageFullName, 0777);
       include "users.php";
       $oldImage = getUserImage();
-      unlink($oldImage['image']);
+      if (file_exists($oldImage)) {
+        unlink($oldImage['image']);
+      }
       updateUserImage($imageFullName);
       echo 'success';
     } else {
