@@ -16,7 +16,7 @@
         Log In
     </button>
     <form id="signUpForm" name="signUpForm" class="visible"
-          action="signup.php" method="POST">
+          action="backend/signup.php" method="POST">
         <legend>Sign Up for Free</legend>
         <input type="text"
                id="fname"
@@ -85,16 +85,17 @@
                onsubmit="function () {
                     if (MatchPassword() == false){
                         preventDefault();
-                       }
+                    }
+                    Ajax();
                }"
         />
     </form>
     <form id="loginForm" name="loginForm" class="hidden"
-          action="" method="">
+          action="backend/login.php" method="POST">
         <legend>Log in</legend>
-        <input type="email" id="email2" class="input"
+        <input type="email" id="logemail" class="input"
                name="email" placeholder="Email" required/>
-        <input type="password" id="password2" class="input"
+        <input type="password" id="logpassword" class="input"
                name="password" placeholder="Password" required/>
         <input type="submit" id="submit_login" class="input submit"
                name="submit" value="Log in" />

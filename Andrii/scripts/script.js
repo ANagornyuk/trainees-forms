@@ -36,14 +36,18 @@ function ValidateEmail(id){
 	let emailre = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 	if (id.value == ""){
 		id.style.borderColor = "initial";
+		//HideTip(emailtip);
 	}
 	if (emailre.test(id.value) != true){
 		//ShowTip(nametip);
 		id.style.borderColor = "yellow";
 	}
 	if (emailre.test(id.value) == true){
-		HideTip(emailtip);
-		id.style.borderColor = "green";
+		Ajax();
+		// if (emailtip.textContent == ''){
+		// 	HideTip(emailtip);
+		// 	id.style.borderColor = "green";
+		// }
 	}
 }
 
@@ -54,8 +58,17 @@ function OnEmailLeaveFocus (id) {
 		id.style.borderColor = "red";
 	}
 	if (emailre.test(id.value) == true){
-		HideTip(emailtip);
-		id.style.borderColor = "green";
+		// if (emailtip.textContent != ''){
+		// 	//id.style.borderColor = "orange";
+		// } else {
+		// let ajax = Ajax();
+		// console.log(ajax);
+		// if (ajax != 'undefined'){
+		// 	ShowTip(emailtip, ajax);
+		// } else {
+			HideTip(emailtip);
+			id.style.borderColor = "green";
+
 	}
 	if (id.value == ""){
 		id.style.borderColor = "initial";
@@ -83,6 +96,7 @@ function ValidatePassword(id){
 	if (id.value == "")
 		id.style.borderColor = "initial";
 }
+
 function MatchPassword(){
 	let pswcfmtip = document.getElementById('pswcfmtip');
 	let passwordcfm = document.getElementById('passwordcfm');
@@ -105,13 +119,55 @@ function MatchPassword(){
 	}
 	return passwords_coincide;
 }
+
 function ShowTip(id, text){
 	id.className = "visible";
-	if (text != undefined) {
+	//console.log(text);
+	if (text != 'undefined') {
 		id.textContent = text;
 	}
 
 }
+
 function HideTip(id){
 	id.className = "hidden";
+}
+
+function Ajax(){
+	//alert('Hello');
+	//let resp;
+	let xhr = new XMLHttpRequest();
+	//let test;
+	let email = document.getElementById('email').value;
+	xhr.open('GET', './backend/' +
+		'checkemail.php?email=' + email, true);
+	xhr.send();
+	//console.log(xhr);
+	xhr.onreadystatechange = function () {
+		const DONE = 4; // readyState 4 means the request is done.
+		const OK = 200; // status 200 is a successful return.
+		//test = 'test';
+		if (xhr.readyState === DONE) {
+			if (xhr.status === OK) {
+				// resp = xhr.responseText; // 'This is the output.'
+				//console.log(xhr);
+				if (xhr.responseText != ""){
+					ShowTip(emailtip, xhr.responseText);
+					emailtip.style.borderColor = "orange";
+				} else {
+					HideTip(emailtip);
+					emailtip.style.borderColor = "green";
+				}
+				//return resp;
+			} else {
+				console.log('Error: ' + xhr.status); // An error occurred during the request.
+			}
+		}
+		//console.log('resp inside onready', resp);
+		//return resp;
+	}
+	//console.log(xhr.responseText);
+	//console.log('resp inside Ajax', resp);
+	//console.log('test', test);
+	//return resp;
 }
