@@ -33,17 +33,17 @@
                     <tr>
                         <td>Last name</td>
                         <td id="table_lname">%s</td>
-                        <td id=""><button onclick="">Change</button></td>
+                        <td id="table_lname_button"><button onclick="changeField(table_lname, table_lname_button)">Change</button></td>
                     </tr>
                     <tr>
                         <td>Email</td>
                         <td id="table_email">%s</td>
-                        <td id=""><button onclick="">Change</button></td>
+                        <td id="table_email_button"><button onclick="changeField(table_email, table_email_button)">Change</button></td>
                     </tr>
                     <tr>
                         <td>Password</td>
                         <td id="table_password"><button onclick="showPassword()">Show</button></td>
-                        <td id=""><a href="">Change</a></td>
+                        <td id=""><a href="changePassword.html">Change</a></td>
                     </tr>
                 </table>
             </div>

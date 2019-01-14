@@ -2,7 +2,7 @@ async function showPassword() {
     let element = document.getElementById('table_password');
     //console.log(element);
     //console.log(el_id);
-    const response =  await fetch('./backend/userpage_showPassword.php?showpass=1')
+    const response =  await fetch('./backend/userpage_AJAX.php?showpass=1')
         .then((response) => {
                return response.text();
             })
@@ -23,7 +23,7 @@ function changeField(input, button) {
 
 function changestoDB(input) {
     //alert("Hello");
-    let baseurl = './backend/userpage_showPassword.php?';
+    let baseurl = './backend/userpage_AJAX.php?';
     let val = input.firstChild.value;
     let url = baseurl + input.id + '=' + val;
     //alert(url);
