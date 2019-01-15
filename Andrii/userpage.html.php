@@ -69,5 +69,15 @@
         }
     ?>
     </div>
+    <form method="post" enctype="multipart/form-data" action="backend/upload_image.php" >
+        <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
+        <input type="file" name="upload">
+        <input type="submit" value="Load image">
+    </form>
+    <div>
+        <form method="get" action="backend/logout.php">
+            <input type="submit" value="Log out">
+        </form>
+    </div>
 </body>
 </html>
