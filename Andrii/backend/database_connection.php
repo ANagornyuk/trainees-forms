@@ -1,6 +1,7 @@
 <?php
 
-require 'evn_vars.php';
+
 require 'db-conn.php';
 
-$conn = db_conn($servername, $username, $password, $dbname, $table);
+$conn = db_conn();
+$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

@@ -1,7 +1,8 @@
 <?php
 
-function db_conn($servername, $username, $password, $dbname, $table)
+function db_conn()
 {
+    require 'evn_vars.php';
     try {
         $conn = new PDO("mysql:host=$servername", $username, $password);
         // set the PDO error mode to exception
