@@ -4,11 +4,11 @@
 <head>
   <title>Tolik's form</title>
   <meta charset="UTF-8"/>
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../../firstForm/css/style.css">
   <script
       src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
   <script src="https://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
-  <script type="text/javascript" src="../js/form.js"></script>
+  <script type="text/javascript" src="../../firstForm/js/form.js"></script>
 </head>
 <body>
 <div class="home">

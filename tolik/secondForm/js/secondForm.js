@@ -22,8 +22,17 @@ $(document).ready(function () {
     }
   });
 
+  // If LOGIN error active login
+  if (($(".message").find("div.err-login").length > 0)) {
+        $("div#log-in-tab, div#sign-up-tab").toggleClass("active");
+        $("div#log-in, div#sign-up").toggleClass("active");
+  }
+
+
   $(".next-form").css('cursor', 'pointer').click(function (event) {
-    $("body").load("../views/form.php");
+    window.location.href = "/tolik/firstForm/views/form.php";
+
+    // $("body").load("../../firstForm/views/form.php");
   });
 
   // Sign Up form Validate
@@ -52,14 +61,14 @@ $(document).ready(function () {
     }
 
     // Validate Password
-    if (!$("#password").val().trim()) {
-      $(".errors").append("<div class='err-pass'>Please enter your Password</div>");
-    } else {
-      var passPattern = /^(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/i;
-      if (!passPattern.test($('#password').val())) {
-        $(".errors").append("<div class='err-pass'>Password must have UpperCase, LowerCase, Number/SpecialChar and min 8 Chars</div>");
-      }
-    }
+    // if (!$("#password").val().trim()) {
+    //   $(".errors").append("<div class='err-pass'>Please enter your Password</div>");
+    // } else {
+    //   var passPattern = /^(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/i;
+    //   if (!passPattern.test($('#password').val())) {
+    //     $(".errors").append("<div class='err-pass'>Password must have UpperCase, LowerCase, Number/SpecialChar and min 8 Chars</div>");
+    //   }
+    // }
 
     // If there are errors, the button is not active
     if ($(".errors").find("div").length > 0) {
@@ -73,24 +82,24 @@ $(document).ready(function () {
     $(".errors div").remove();
 
     // Validate login
-    if (!$("#login").val().trim()) {
-      $(".errors").append("<div class='err-login'>Please enter your Login</div>");
-    } else {
-      var emailPattern = /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,6}\.)?[a-z]{2,6}$/i;
-      if (!emailPattern.test($('#login').val())) {
-        $(".errors").append("<div class='err-login'>You have entered incorrect Login</div>");
-      }
-    }
+    // if (!$("#login").val().trim()) {
+    //   $(".errors").append("<div class='err-login'>Please enter your Login</div>");
+    // } else {
+    //   var emailPattern = /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,6}\.)?[a-z]{2,6}$/i;
+    //   if (!emailPattern.test($('#login').val())) {
+    //     $(".errors").append("<div class='err-login'>You have entered incorrect Login</div>");
+    //   }
+    // }
 
     // Validate Password
-    if (!$("#login-password").val().trim()) {
-      $(".errors").append("<div class='err-pass'>Please enter your Password</div>");
-    } else {
-      var passPattern = /^(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/i;
-      if (!passPattern.test($('#login-password').val())) {
-        $(".errors").append("<div class='err-pass'>Password must have UpperCase, LowerCase, Number/SpecialChar and min 8 Chars</div>");
-      }
-    }
+    // if (!$("#login-password").val().trim()) {
+    //   $(".errors").append("<div class='err-pass'>Please enter your Password</div>");
+    // } else {
+    //   var passPattern = /^(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/i;
+    //   if (!passPattern.test($('#login-password').val())) {
+    //     $(".errors").append("<div class='err-pass'>Password must have UpperCase, LowerCase, Number/SpecialChar and min 8 Chars</div>");
+    //   }
+    // }
 
     // If there are errors, the button is not active
     if ($(".errors").find("div").length > 0) {
@@ -100,7 +109,8 @@ $(document).ready(function () {
 
   // Remove errors when user change tab
   $("#tabs div").click(function (event) {
-    $(".errors div").remove();
+    $(".message div").remove();
   });
+
 
 });

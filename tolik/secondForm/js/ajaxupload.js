@@ -17,12 +17,13 @@ $(document).ready(function () {
   });
 
   $('.edit form').on('submit', (function (e) {
+    // e.preventDefault();
 
     var formData = new FormData(this);
 
     $.ajax({
       type: 'POST',
-      url: '../controllers/loadImage.php',
+      url: '../index.php',
       data: formData,
       cache: false,
       contentType: false,

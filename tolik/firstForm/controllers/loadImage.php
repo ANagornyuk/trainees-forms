@@ -15,15 +15,12 @@ if (isset($_FILES) && !empty($_FILES['image']['name'])) {
   if ($imageType == 'image/jpeg' || $imageType == 'image/png') {
     if (move_uploaded_file($image['tmp_name'], $imageFullName)) {
       chmod($imageFullName, 0777);
-      include "users.php";
+//      include "users.php";
       $oldImage = getUserImage();
       if (file_exists($oldImage)) {
         unlink($oldImage['image']);
       }
       updateUserImage($imageFullName);
-      echo 'success';
-    } else {
-      echo 'error';
     }
   }
 }
