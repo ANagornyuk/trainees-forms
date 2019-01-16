@@ -12,4 +12,8 @@ if (!empty($_POST['password'])) {
   editPassword($user);
 }
 
+if (isset($_FILES) && !empty($_FILES['image']['name'])) {
+  include 'loadImage.php';
+}
+
 include "../views/cabinet.php";

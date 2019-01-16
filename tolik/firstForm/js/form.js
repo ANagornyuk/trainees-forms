@@ -23,8 +23,8 @@ $(document).ready(function () {
   }
 
   $(".next-form").css('cursor', 'pointer').click(function (event) {
-    $("body").load("../views/secondForm.php");
+    window.location.href = "/tolik/secondForm/index.php";
+    //   $("body").load("../../secondForm/views/secondForm.php");
   });
-
 
 });

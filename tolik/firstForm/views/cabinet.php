@@ -3,7 +3,7 @@
 <head>
   <title>Simple forms</title>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="../../globalStyles.css">
+  <link rel="stylesheet" href="../../../globalStyles.css">
   <link rel="stylesheet" href="../css/cabinet.css">
   <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
@@ -74,7 +74,7 @@
           <br/>
 
           <input class="btn btn-default save" type="submit" name="submit"
-                 value="Save"/>
+                 value="save"/>
         </div>
       </form>
     </div>
