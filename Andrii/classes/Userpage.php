@@ -1,49 +1,37 @@
 <?php
 
-function is_sess(){
-    session_start();
-    $sess_err = '<div><p>Please log in or sign up</p></div>';
-//    $fname = $_SESSION["username"];
-//    if(!isset($_SESSION['username'])) {
-//        echo $sess_err;
-//        exit();
-//    }
-    $uid = $_SESSION["id"];
-    if(!isset($_SESSION['id'])) {
-        echo $sess_err;
-        exit();
-    }
-    return $uid;
-}
+class Userpage
+{
+    //private $uid;
+    private $fetch;
 
-function db_select($uid){
-    if ($uid) {
-        include_once 'backend/database_connection.php';
-        $stmt = $conn->prepare("SELECT * FROM users WHERE id = ? ");
-        $stmt->execute([$uid]);
-        $select = $stmt->fetch();
-        return $select;
+    public function __construct($pdo_conn){
+        session_start();
+        $sess_err = '<div><p>Please log in or sign up</p></div>';
+        $uid = $_SESSION["id"];
+        if(!isset($_SESSION['id'])) {
+            echo $sess_err;
+            exit();
+        }
+        $this->fetch = $pdo_conn->getUserdata($uid);
     }
-}
 
-function print_hello ($select){
-    $logout = '<span style="float: right">
+    public function printHello(){
+        $logout = '<span style="float: right">
         <form method="get" action="backend/logout.php">
             <input type="submit" value="Log out">
         </form>
     </span>';
-    $block = '<header>
+        $block = '<header>
         <span>Hello, <span style="color: fuchsia"> %s </span>!</span>
          %s 
         </header>';
 
-    echo sprintf($block, $select['FirstName'],  $logout);
+        echo sprintf($block, $this->fetch['FirstName'],  $logout);
+    }
 
-
-}
-
-function print_creditals ($select){
-    $infotable = '
+    public function printCreditals(){
+        $infotable = '
                 <div class="col" style="float: right;">
                     
                     <table>
@@ -71,11 +59,12 @@ function print_creditals ($select){
                     
                 </div>
             ';
-    echo sprintf($infotable, $select['FirstName'],  $select['LastName'], $select['Email']);
-}
+        echo sprintf($infotable, $this->fetch['FirstName'],  $this->fetch['LastName'], $this->fetch['Email']);
+    }
 
-function print_userlogo ($select){
-    $block = '<div class="col" style="float: left;">
+
+    public function printUserlogo(){
+        $block = '<div class="col" style="float: left;">
             %s
             <form method="post" enctype="multipart/form-data" action="backend/upload_image.php" >
                 <fieldset>
@@ -86,11 +75,13 @@ function print_userlogo ($select){
                 </fieldset>
             </form>
         </div>';
-            $image = '<img src="images/%s" alt="" style="width: 400px; height: 400px">';
-            if ($select['Image'] == null) {
-                $image = sprintf($image, 'user.png');
-            } else {
-                $image = sprintf($image, $select['Image']);
-            }
-            echo sprintf($block, $image);
+        $image = '<img src="images/%s" alt="" style="width: 400px; height: 400px">';
+        if ($this->fetch['Image'] == null) {
+            $image = sprintf($image, 'user.png');
+        } else {
+            $image = sprintf($image, $this->fetch['Image']);
+        }
+        echo sprintf($block, $image);
+    }
+
 }

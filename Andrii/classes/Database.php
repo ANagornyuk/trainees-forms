@@ -5,8 +5,8 @@ class Database
 {
     private $pdo;
 
-    public function __construct(){
-        require 'evn_vars.php';
+    public function __construct($servername, $username, $password, $dbname, $table){
+        //require 'evn_vars.php';
         try {
             $this->pdo = new PDO("mysql:host=$servername", $username, $password);
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -26,7 +26,8 @@ class Database
             INSERT INTO users 
             (FirstName, LastName, Email, Password)
             VALUES
-            (:fname, :lname, :email, :password)");
+            (:fname, :lname, :email, :password)
+            ");
             $password = password_hash($Password, PASSWORD_DEFAULT);
             $insert->execute(array(
                 ':fname' => $FirstName,
@@ -40,7 +41,41 @@ class Database
 
     }
 
+    public function LogIn($Email){ //$_POST['email']
+        try {
+            $stmt = $this->pdo->prepare("
+            SELECT Password, FirstName, id 
+            FROM users
+            WHERE Email = ? 
+            ");
+            $stmt->execute([$Email]);
+            $select = $stmt->fetch();
+        } catch(PDOException $e) {
+            echo "Select failed: " . $e->getMessage();
+        }
+        return $select;
+    }
+
+    public function getUserdata($UserId){
+        try {
+            $stmt = $this->pdo->prepare("
+            SELECT * 
+            FROM users
+            WHERE id = ? 
+            ");
+            $stmt->execute([$UserId]);
+            $select = $stmt->fetch();
+        } catch(PDOException $e) {
+            echo "Select failed: " . $e->getMessage();
+        }
+        return $select;
+
+
+    }
+
     public function lastInsertId(){
         return $this->pdo->lastInsertId();
     }
+
+
 }
