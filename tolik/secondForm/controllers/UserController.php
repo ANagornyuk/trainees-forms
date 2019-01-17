@@ -6,9 +6,17 @@ class UserController {
   public function actionRegister() {
 
     if (isset($_SESSION['user']) && !empty($_SESSION['user'])) {
-      header("Location: /tolik/secondForm/index.php/user/cabinet");
+      $currentUser = Users::getCurrentUser();
+
+      if (empty($currentUser)) {
+        session_destroy();
+        require_once ROOT . "/views/secondForm.php";
+      } else {
+        header("Location: /tolik/secondForm/index.php/user/cabinet");
+      }
       return TRUE;
     }
+
     if (isset($_POST['register-button'])) {
 
       $userData["firstname"] = $_POST["firstname"];
@@ -39,6 +47,7 @@ class UserController {
         header("Location: /tolik/secondForm/index.php/user/cabinet");
       }
     } else {
+
       require_once ROOT . "/views/secondForm.php";
     }
 
@@ -84,13 +93,21 @@ class UserController {
         $this->edit($currentUser);
       }
       $user = $currentUser;
+
+      require_once ROOT . "/views/cabinet.php";
+    } else {
+      header("Location: /tolik/secondForm/index.php/user/register");
     }
 
-    require_once ROOT . "/views/cabinet.php";
     return TRUE;
   }
 
   // Update user in database
+
+  /**
+   * @param $currentUser
+   * @return bool
+   */
   public function edit($currentUser) {
     $user = $_POST;
     $user['id'] = $currentUser['id'];
@@ -99,17 +116,13 @@ class UserController {
     //Check Login exists
     if ($currentUser['login'] != $user['login']) {
       $loginExist = Users::checkLoginExists($user['login']);
-
-      // Check login taken
-      if ($loginExist) {
-        $message = "<div class='err-check-login'>Sorry such login is already taken please enter other login</div>";
-      } else {
-        $updateImage = $this->setValue($user);
-        if (!empty($updateImage)) {
-          $user['image'] = $updateImage;
-        }
-        $message = "<div class='scs-save'>Save success</div>";
-      }
+    }
+    if ($currentUser['email'] != $user['email']) {
+      $emailExist = Users::checkEmailExists($user['email']);
+    }
+    // Check login or email taken
+    if (!empty($loginExist) || !empty($emailExist)) {
+      $message = "<div class='err-check-login'>Sorry such login or email is already taken please enter other login</div>";
     } else {
       $updateImage = $this->setValue($user);
       if (!empty($updateImage)) {
