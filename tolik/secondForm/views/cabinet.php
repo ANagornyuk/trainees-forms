@@ -3,11 +3,12 @@
 <head>
   <title>Simple forms</title>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="../../../globalStyles.css">
-  <link rel="stylesheet" href="./css/cabinet.css">
+  <link rel="stylesheet" href="/globalStyles.css">
+  <link rel="stylesheet" href="/tolik/secondForm/css/cabinet.css">
   <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
-  <script type="text/javascript" src="./js/ajaxupload.js"></script>
+  <script type="text/javascript"
+          src="/tolik/secondForm/js/ajaxupload.js"></script>
 </head>
 <body>
 <header>
@@ -27,7 +28,7 @@
 
 <article>
 
-  <form id="logout" action="./index.php" method="post">
+  <form id="logout" action="../user/logout" method="post">
     <input class="button" type="submit" name="logout" value="Log out">
   </form>
 
@@ -42,12 +43,15 @@
         } ?>
       </div>
 
-      <form action="./index.php" method="post"
+      <form action="../user/cabinet" method="post"
             enctype="multipart/form-data">
 
         <div class="image-group">
           <div class="image-preview">
-            <img id="preview" src="<?php echo $user['image'] ?>" alt="">
+            <img id="preview"
+                 src="<?php if (isset($user['image']) && !empty($user['image'])) {
+                   echo "/tolik/secondForm/" . $user['image'];
+                 } ?>">
           </div>
 
           <div class="load-image-group">
@@ -57,7 +61,6 @@
         </div>
 
         <div class="edit-form">
-          <!--          <h2>Edit user</h2>-->
           <p>Login:</p>
           <input type="text" name="login" placeholder="Login"
                  value="<?php echo $user['login']; ?>"/>

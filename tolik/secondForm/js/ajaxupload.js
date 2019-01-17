@@ -23,7 +23,7 @@ $(document).ready(function () {
 
     $.ajax({
       type: 'POST',
-      url: '../index.php',
+      url: 'index.php',
       data: formData,
       cache: false,
       contentType: false,

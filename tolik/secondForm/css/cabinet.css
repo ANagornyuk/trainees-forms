@@ -72,3 +72,11 @@ header {
   margin-left: 80px;
   width: 350px;
 }
+
+[class^="scs-"] {
+  display: block;
+  background-color: #8ac600;
+  margin-top: 20px;
+  margin-left: 80px;
+  width: 350px;
+}
