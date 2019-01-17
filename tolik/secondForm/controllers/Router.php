@@ -4,7 +4,7 @@ class Router {
 
   public function run() {
     if ($_SESSION) {
-      require_once('users.php');
+      require_once('./models/UUsers.php');
       $user = Users::getCurrentUser();
       if (isset($_POST['edit'])) {
         require_once('edit.php');
