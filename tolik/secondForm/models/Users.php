@@ -3,7 +3,7 @@
 class Users {
 
   public static function connection() {
-    require_once("connection.php");
+    require_once ROOT . "/components/Db.php";
     return Db::getConnection();
   }
 
@@ -26,7 +26,7 @@ class Users {
   }
 
   public static function getCurrentUser() {
-    if ($_SESSION['user']) {
+    if (isset($_SESSION['user'])) {
       $id = $_SESSION['user'];
       return self::getUserById($id);
     }
