@@ -71,35 +71,24 @@ class Database
         return $select;
     }
 
-    public function changePassword($select, $Password){
+    public function setUserdata($select, $column, $newData){
         try {
-            $stmt = $this->pdo->prepare("
+            $sql = "
             UPDATE users
-            SET Password = :password 
+            SET $column = :val 
             WHERE id= :id
-            ");
+            ";
+            $stmt = $this->pdo->prepare($sql);
             $stmt->execute(array(
-                ':password' => password_hash($Password, PASSWORD_DEFAULT ),
+                ':val' => $newData,
                 ':id' => $select['ID']
             ));
-        } catch(PDOException $e) {
-            echo "Update failed: " . $e->getMessage();
-        }
-    }
-
-    public function uploadImage($select, $Image){
-        try {
-            $stmt = $this->pdo->prepare("
-            UPDATE users
-            SET Image = ? 
-            WHERE id= ?
-            ");
-            $stmt->execute([$Image, $select['ID']]);
         } catch(PDOException $e) {
             echo "Update failed: " . $e->getMessage();
             exit();
         }
     }
+
 
     public function lastInsertId(){
         return $this->pdo->lastInsertId();

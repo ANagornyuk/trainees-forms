@@ -52,7 +52,7 @@ class Userpage
                         </tr>
                         <tr>
                             <td>Password</td>
-                            <td id="table_password"><button onclick="showPassword()">Show</button></td>
+                            <td id="table_password"><!--<button onclick="showPassword()">Show</button>--></td>
                             <td id=""><a href="changePassword.html">Change</a></td>
                         </tr>
                     </table>
@@ -66,7 +66,7 @@ class Userpage
     public function printUserlogo(){
         $block = '<div class="col" style="float: left;">
             %s
-            <form method="post" enctype="multipart/form-data" action="backend/upload_image.php" >
+            <form method="post" enctype="multipart/form-data" action="backend/requests.php" >
                 <fieldset>
                     <legend>Change image</legend>
                     <input type="hidden" name="MAX_FILE_SIZE" value="30000000" />
@@ -87,7 +87,8 @@ class Userpage
     public function changePassword($Password, $NewPassword, $NewPasswordConfirm, $pdo_conn){
         if (password_verify($Password, $this->fetch['Password'])) {
             if ($NewPassword == $NewPasswordConfirm){
-                $pdo_conn->changePassword($this->fetch, $NewPassword);
+                $NewPassword = password_hash($NewPassword, PASSWORD_DEFAULT );
+                $pdo_conn->setUserdata($this->fetch, 'Password', $NewPassword);
                 header('Location: ../userpage.html.php');
             } else {
                 echo "New passwords don't match";
@@ -107,9 +108,9 @@ class Userpage
                         $filename = $name . $extension;
                         $uploadfile = $uploaddir . $name . $extension;
                         if (move_uploaded_file($_FILES['upload']['tmp_name'], $uploadfile)) {
-                            chmod($imageFullName, 0777);
+                            chmod($uploadfile, 0777);
                             //write to db
-                            $pdo_conn->uploadImage($this->fetch, $filename);
+                            $pdo_conn->setUserdata($this->fetch, 'Image', $filename);
                             header('Location: ../userpage.html.php');
                         } else {
                             echo "Upload error";
@@ -120,6 +121,11 @@ class Userpage
                 }
                  echo "Upload error";
         }
+    }
+
+    public function changeUserdata($data, $col, $pdo_conn){
+        $pdo_conn->setUserdata($this->fetch, $col, $data);
+        header('Location: ../userpage.html.php');
     }
 
 }

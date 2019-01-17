@@ -23,7 +23,7 @@ function changeField(input, button) {
 
 function changestoDB(input) {
     //alert("Hello");
-    let baseurl = './backend/userpage_AJAX.php?';
+    let baseurl = './backend/requests.php?';
     let val = input.firstChild.value;
     let url = baseurl + input.id + '=' + val;
     //alert(url);
