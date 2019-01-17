@@ -69,8 +69,36 @@ class Database
             echo "Select failed: " . $e->getMessage();
         }
         return $select;
+    }
 
+    public function changePassword($select, $Password){
+        try {
+            $stmt = $this->pdo->prepare("
+            UPDATE users
+            SET Password = :password 
+            WHERE id= :id
+            ");
+            $stmt->execute(array(
+                ':password' => password_hash($Password, PASSWORD_DEFAULT ),
+                ':id' => $select['ID']
+            ));
+        } catch(PDOException $e) {
+            echo "Update failed: " . $e->getMessage();
+        }
+    }
 
+    public function uploadImage($select, $Image){
+        try {
+            $stmt = $this->pdo->prepare("
+            UPDATE users
+            SET Image = ? 
+            WHERE id= ?
+            ");
+            $stmt->execute([$Image, $select['ID']]);
+        } catch(PDOException $e) {
+            echo "Update failed: " . $e->getMessage();
+            exit();
+        }
     }
 
     public function lastInsertId(){

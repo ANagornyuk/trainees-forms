@@ -84,4 +84,42 @@ class Userpage
         echo sprintf($block, $image);
     }
 
+    public function changePassword($Password, $NewPassword, $NewPasswordConfirm, $pdo_conn){
+        if (password_verify($Password, $this->fetch['Password'])) {
+            if ($NewPassword == $NewPasswordConfirm){
+                $pdo_conn->changePassword($this->fetch, $NewPassword);
+                header('Location: ../userpage.html.php');
+            } else {
+                echo "New passwords don't match";
+            }
+        } else {
+            echo "Password is not correct.";
+        }
+    }
+
+    public function uploadImage($uploaddir, $pdo_conn){
+        if (is_uploaded_file($_FILES['upload']['error']) == '0') {
+            if (is_uploaded_file($_FILES['upload']['tmp_name'])){
+                    if (getimagesize($_FILES['upload']['tmp_name'])[mime] == 'image/jpeg' ||
+                        getimagesize($_FILES['upload']['tmp_name'])[mime] == 'image/png'){
+                        $name = md5_file($_FILES['upload']['tmp_name']);
+                        $extension = image_type_to_extension(getimagesize($_FILES['upload']['tmp_name'])[2]);
+                        $filename = $name . $extension;
+                        $uploadfile = $uploaddir . $name . $extension;
+                        if (move_uploaded_file($_FILES['upload']['tmp_name'], $uploadfile)) {
+                            chmod($imageFullName, 0777);
+                            //write to db
+                            $pdo_conn->uploadImage($this->fetch, $filename);
+                            header('Location: ../userpage.html.php');
+                        } else {
+                            echo "Upload error";
+                        }
+                    } else {
+                        echo "File type must be only image!";
+                    }
+                }
+                 echo "Upload error";
+        }
+    }
+
 }
