@@ -18,14 +18,7 @@
         $userpage->printHello();
         $userpage->printUserlogo();
         $userpage->printCreditals();
-        /*
-            require 'backend/userpage.php';
-            $uid = is_sess();
-            $select = db_select($uid);
-            print_hello($select);
-            print_userlogo($select);
-            print_creditals($select);
-        */
+
         ?>
     </div>
 </body>

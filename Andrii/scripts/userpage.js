@@ -1,19 +1,20 @@
+/* ~unused~
 async function showPassword() {
     let element = document.getElementById('table_password');
-    //console.log(element);
-    //console.log(el_id);
+
     const response =  await fetch('./backend/userpage_AJAX.php?showpass=1')
         .then((response) => {
                return response.text();
             })
         .then((data) => {
-                //console.log(data);
+
                element.innerHTML = data;
         }).catch((error) => {
                console.log('Ajax error: ' , error);
         });
-    //return response;
+
 }
+*/
 
 function changeField(input, button) {
     //console.log(input);
