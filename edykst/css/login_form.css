@@ -27,10 +27,12 @@
   display: flex;
 }
 
+/*noinspection ALL*/
 #top_buttons {
   width: -webkit-fill-available;
 }
 
+/*noinspection ALL*/
 .button {
   max-width: -webkit-fill-available;
   width: 200px;
@@ -162,6 +164,18 @@
   opacity: 1;
 }
 
+.table td,
+.table th,
+.table {
+  border: 1px solid white;
+  border-collapse: collapse;
+}
+
+.table td,
+.table th {
+  padding: 10px;
+}
+
 .no_pad {
   padding: 0;
 }
@@ -237,6 +251,15 @@ span::after {
   color: hsla(350, 100%, 50%, 1);
   content: attr(data-star);
   z-index: 0;
+}
+
+table,
+td,
+tr,
+th {
+  border: none;
+  color: white;
+  width: 100%;
 }
 
 .animate {

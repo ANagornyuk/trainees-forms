@@ -46,7 +46,7 @@ function showHide(element_id) {
 $(document).ready(function() {
     $('#ajax').click(function() {
         showHide('blok_ajax');
-        $('#blok_ajax').load('form_js.html');
+        $('#blok_ajax').load('view/form_js.php');
         $('#blok_ajax').css('display', 'block');
     })
 })
