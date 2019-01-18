@@ -20,7 +20,7 @@ class Validation {
           $err[] = "Name is required";
         }
         else {
-          $fn = self::input($_POST["fn"]);
+          $fn = static::input($_POST["fn"]);
           if (!preg_match("/^[a-zA-Z ]*$/", $fn)) {
             $err[] = 'Only letters and white space allowed';
           }
@@ -30,7 +30,7 @@ class Validation {
           $err[] = 'Name is required';
         }
         else {
-          $ln = self::input($_POST["ln"]);
+          $ln = static::input($_POST["ln"]);
           if (!preg_match("/^[a-zA-Z ]*$/", $ln)) {
             $err[] = 'Only letters and white space allowed';
           }
@@ -40,7 +40,7 @@ class Validation {
           $err[] = 'Email is required';
         }
         else {
-          $email = self::input($_POST["email"]);
+          $email = static::input($_POST["email"]);
           if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $err[] = 'Invalid email format';
           }
@@ -61,7 +61,7 @@ class Validation {
             $user->Create($fn, $ln, $email, $password1, $_POST["password1"]);
           }
           else {
-            echo 'This user already exists';
+            $err[] = 'This user already exists';
           }
 
         }
@@ -73,7 +73,7 @@ class Validation {
           $err[] = 'Email is required';
         }
         else {
-          $email = self::input($_POST["email"]);
+          $email = static::input($_POST["email"]);
 
           if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $err[] = 'Invalid email format';
@@ -84,14 +84,11 @@ class Validation {
         if (empty($err)) {
           $test_if_exec = $user->test($email);
 
-          if ($test_if_exec[0] == '1') {
+          if ($test_if_exec[0] == 1) {
             $password = $_POST["password"];
 
-            if ($user->login($email, $password)) {
-              TRUE;
-            }
-            else {
-              echo 'User or password is wrong';
+            if (!$user->login($email, $password)) {
+              $err[] = 'User or password is wrong';
             }
 
           }

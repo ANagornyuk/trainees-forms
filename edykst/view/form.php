@@ -17,11 +17,11 @@
       <div id="block_login">
         <div><p></p></div>
         <div>
-          <input class="input_text" type="text" required/>
+          <input class="input_text" type="text" placeholder="" required/>
           <span class="l1" data-star=" *">Email Address</span>
         </div>
         <div>
-          <input class="input_text" type="password" required/>
+          <input class="input_text" type="password" placeholder="" required/>
           <span class="l1" data-star=" *">Password</span>
         </div>
       </div>
@@ -45,17 +45,17 @@
           <p>Sing Up for Free</p>
         </div>
         <div>
-          <input class="input_text input_fn" type="text" required/>
+          <input class="input_text input_fn" type="text" placeholder="" required/>
           <span class="l1" data-star=" *">First Name</span>
-          <input class="input_text input_ln" type="text" required/>
+          <input class="input_text input_ln" type="text" placeholder="" required/>
           <span class="l2" data-star=" *">Last Name</span>
         </div>
         <div>
-          <input class="input_text" type="text" required/>
+          <input class="input_text" type="text" placeholder="" required/>
           <span class="l1" data-star=" *">Email Address</span>
         </div>
         <div>
-          <input class="input_text" type="password" required/>
+          <input class="input_text" type="password" placeholder="" required/>
           <span class="l1" data-star=" *">Set A Password</span>
         </div>
       </div>
@@ -84,6 +84,7 @@
     <!-- Form for Signin -->
     <form action="index.php" method="post" class="valForm" id="form_sign">
       <p>Sing Up for Free</p>
+      <p></p>
       <div class="div_input">
         <input class="input_text input_fn valid" type="text" id="fn_js" name="fn" placeholder="First Name"/>
         <input class="input_text input_ln valid" type="text" id="ln_js" name="ln" placeholder="Last Name"/>

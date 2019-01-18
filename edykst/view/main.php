@@ -18,28 +18,7 @@
 </head>
 <body>
 <?php
-
-if (isset($_REQUEST['exit'])) {
-  unset($_SESSION['user']);
-}
-
-if (!isset($_SESSION['user'])) {
-  $action_file = 'form.php';
-}
-elseif (isset($_REQUEST['p'])) {
-  $action_file = strtolower($_REQUEST['p']) . '.php';
-  $action_path = 'view/' . $action_file;
-  if (!file_exists($action_path)) {
-    $action_file = 'user.php';
-  }
-}
-else {
-  $action_file = 'user.php';
-}
-
-
-include $action_file;
-
+include Route::$action;
 ?>
 </body>
 </html>

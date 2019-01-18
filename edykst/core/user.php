@@ -1,8 +1,8 @@
 <?php
 
-  /**
-   * Class User.
-   */
+/**
+ * Class User.
+ */
 class User {
 
   public $link;
@@ -35,8 +35,8 @@ class User {
     $sql = 'INSERT INTO users(firstname, lastname, email, password)
     VALUES (?, ?, ?, ?)';
     $this->connect()->prepare($sql)->execute([$fn, $ln, $email, $password1]);
-    self::disconnect();
-    self::login($email, $password_not_hash);
+    static::disconnect();
+    static::login($email, $password_not_hash);
   }
 
   /**
@@ -46,7 +46,7 @@ class User {
     $sql = 'SELECT COUNT(*) FROM users WHERE email=?';
     $result = $this->connect()->prepare($sql);
     $result->execute([$email]);
-    self::disconnect();
+    static::disconnect();
     return $result->fetch();
   }
 
@@ -58,9 +58,9 @@ class User {
     $ifLogin = $this->connect()->prepare($sql);
     $ifLogin->execute([$email]);
     $result = $ifLogin->fetch();
-    self::disconnect();
+    static::disconnect();
     if (password_verify($password2, $result[0])) {
-      self::startSessionUser($result[1]);
+      static::startSessionUser($result[1]);
       return TRUE;
     }
     else {
@@ -86,7 +86,7 @@ class User {
     $sql = 'SELECT id, firstname, lastname, email FROM users WHERE id=?';
     $result = $this->connect()->prepare($sql);
     $result->execute([$id]);
-    self::disconnect();
+    static::disconnect();
     return $result->fetch();
   }
 
@@ -96,7 +96,7 @@ class User {
   public function changeUser($fn, $ln, $email, $id) {
     $sql = 'UPDATE users SET firstname=?, lastname=?, email=? WHERE id=?';
     $this->connect()->prepare($sql)->execute([$fn, $ln, $email, $id]);
-    self::disconnect();
+    static::disconnect();
   }
 
   /**
@@ -105,7 +105,7 @@ class User {
   public function deleteUser($id) {
     $sql = 'DELETE FROM users WHERE id=?';
     $this->connect()->prepare($sql)->execute([$id]);
-    self::disconnect();
+    static::disconnect();
   }
 
 }

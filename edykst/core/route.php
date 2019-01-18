@@ -5,21 +5,43 @@
    */
 class Route {
 
-  public $action;
+  public static $action;
 
   /**
    * Function start.
    */
   public static function start() {
-
     $file_name = 'main';
 
+    if (isset($_REQUEST['exit'])) {
+      unset($_SESSION['user']);
+    }
+
     if (isset($_POST['form'])) {
-      Validation::loginSignUp();
+      $err = Validation::loginSignUp();
+      if (!$err) {
+        $err[] = '';
+      }
     }
 
     $page_file = strtolower($file_name) . '.php';
     $page_path = 'view/' . $page_file;
+
+    if (!isset($_SESSION['user'])) {
+      $action_file = 'form.php';
+    }
+    elseif (isset($_REQUEST['p'])) {
+      $action_file = strtolower($_REQUEST['p']) . '.php';
+      $action_path = 'view/' . $action_file;
+      if (!file_exists($action_path)) {
+        $action_file = 'user.php';
+      }
+    }
+    else {
+      $action_file = 'user.php';
+    }
+
+    self::$action = $action_file;
 
     if (file_exists($page_path)) {
       include 'view/' . $page_file;
@@ -27,6 +49,7 @@ class Route {
     else {
       self::errorPage404();
     }
+
   }
 
   /**
