@@ -4,7 +4,7 @@ require '../classes/Database.php';
 require 'evn_vars.php';
 
 
-$database = new Database($servername, $username, $password, $dbname, $table);
+$database = Database::connect(DBcreditals());
 $database->SignUp($_POST['fname'], $_POST['lname'], $_POST['email'], $_POST['password']);
 $uid = $database->lastInsertId();
 session_start();

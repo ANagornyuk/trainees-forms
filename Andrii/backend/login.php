@@ -4,7 +4,7 @@ require '../classes/Database.php';
 require 'evn_vars.php';
 
 
-$database = new Database($servername, $username, $password, $dbname, $table);
+$database = Database::connect(DBcreditals());
 $email = $_POST['email'];
 $select = $database->LogIn($email);
 if (password_verify($_POST['password'], $select[0])) {

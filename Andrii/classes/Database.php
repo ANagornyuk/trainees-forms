@@ -4,9 +4,15 @@
 class Database
 {
     private $pdo;
+    private static $instance = null;
 
-    public function __construct($servername, $username, $password, $dbname, $table){
+    private function __construct($dbDetails){
         //require 'evn_vars.php';
+        $servername = $dbDetails['servername'];
+        $username = $dbDetails['username'];
+        $password = $dbDetails['password'];
+        $dbname = $dbDetails['dbname'];
+        $table = $dbDetails['table'];
         try {
             $this->pdo = new PDO("mysql:host=$servername", $username, $password);
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -18,6 +24,15 @@ class Database
             echo "Connection failed: " . $e->getMessage();
             exit();
         }
+    }
+
+    public static function connect($dbDetails){
+        // Check if instance is already exists
+        if(self::$instance == null) {
+            self::$instance = new Database($dbDetails);
+        }
+
+        return self::$instance;
     }
 
     public function SignUp($FirstName, $LastName, $Email, $Password){ //$_POST['fname'], $_POST['lname'], $_POST['email'], $_POST['password']
@@ -68,6 +83,11 @@ class Database
         } catch(PDOException $e) {
             echo "Select failed: " . $e->getMessage();
         }
+        return $select;
+    }
+
+    public function selectAllEmail(){
+        $select = $this->pdo->query("SELECT Email FROM users;")->fetchAll();
         return $select;
     }
 

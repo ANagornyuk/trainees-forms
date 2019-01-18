@@ -6,7 +6,7 @@ require '../backend/evn_vars.php';
 
 $uploaddir = '../images/';
 
-$db_conn = new Database($servername, $username, $password, $dbname, $table);
+$db_conn = Database::connect(DBcreditals());
 $userpage = new Userpage($db_conn);
 
 if ($_GET){

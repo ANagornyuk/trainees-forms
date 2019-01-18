@@ -13,7 +13,7 @@
         require 'classes/Database.php';
         require 'backend/evn_vars.php';
 
-        $db_conn = new Database($servername, $username, $password, $dbname, $table);
+        $db_conn = Database::connect(DBcreditals());
         $userpage = new Userpage($db_conn);
         $userpage->printHello();
         $userpage->printUserlogo();
