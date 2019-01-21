@@ -17,74 +17,25 @@ class Userpage
     }
 
     public function printHello(){
-        $logout = '<span style="float: right">
-        <form method="get" action="backend/logout.php">
-            <input type="submit" value="Log out">
-        </form>
-    </span>';
-        $block = '<header>
-        <span>Hello, <span style="color: fuchsia"> %s </span>!</span>
-         %s
-        </header>';
-
-        echo sprintf($block, $this->fetch['FirstName'],  $logout);
-//        require './templates/block_hello.php';
-// return $this->fetch['FirstName'];
-
+        $name = $this->fetch['FirstName'];
+        require './templates/block_hello.php';
     }
 
     public function printCreditals(){
-        $infotable = '
-                <div class="col" style="float: right;">
-                    
-                    <table>
-                        <tr>
-                            <td>First name</td>
-                            <td id="table_fname">%s</td>
-                            <td id="table_fname_button"><button onclick="changeField(table_fname, table_fname_button)">Change</button></td>
-                        </tr>
-                        <tr>
-                            <td>Last name</td>
-                            <td id="table_lname">%s</td>
-                            <td id="table_lname_button"><button onclick="changeField(table_lname, table_lname_button)">Change</button></td>
-                        </tr>
-                        <tr>
-                            <td>Email</td>
-                            <td id="table_email">%s</td>
-                            <td id="table_email_button"><button onclick="changeField(table_email, table_email_button)">Change</button></td>
-                        </tr>
-                        <tr>
-                            <td>Password</td>
-                            <td id="table_password"><!--<button onclick="showPassword()">Show</button>--></td>
-                            <td id=""><a href="changePassword.html">Change</a></td>
-                        </tr>
-                    </table>
-                    
-                </div>
-            ';
-        echo sprintf($infotable, $this->fetch['FirstName'],  $this->fetch['LastName'], $this->fetch['Email']);
+        $tfname = $this->fetch['FirstName'];
+        $tlname = $this->fetch['LastName'];
+        $temail = $this->fetch['Email'];
+        require './templates/block_creditals.php';
     }
 
 
     public function printUserlogo(){
-        $block = '<div class="col" style="float: left;">
-            %s
-            <form method="post" enctype="multipart/form-data" action="backend/requests.php" >
-                <fieldset>
-                    <legend>Change image</legend>
-                    <input type="hidden" name="MAX_FILE_SIZE" value="30000000" />
-                    <input type="file" name="upload">
-                    <input type="submit" value="Load image">
-                </fieldset>
-            </form>
-        </div>';
-        $image = '<img src="images/%s" alt="" style="width: 400px; height: 400px">';
         if ($this->fetch['Image'] == null) {
-            $image = sprintf($image, 'user.png');
+            $image = 'user.png';
         } else {
-            $image = sprintf($image, $this->fetch['Image']);
+            $image = $this->fetch['Image'];
         }
-        echo sprintf($block, $image);
+        require './templates/block_logo.php';
     }
 
     public function changePassword($Password, $NewPassword, $NewPasswordConfirm, $pdo_conn){
