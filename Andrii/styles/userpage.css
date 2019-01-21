@@ -1,0 +1,16 @@
+.cont {
+    width: 850px;
+    margin: auto;
+}
+
+.col {
+
+    width: 400px;
+    display:inline-block;
+}
+
+header {
+    width: 850px;
+    margin: auto;
+    padding: 20px;
+}

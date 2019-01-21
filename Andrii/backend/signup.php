@@ -1,23 +1,16 @@
 <?php
 
-require 'database_connection.php';
+require 'db_conn.php';
 
 
-$insert = $conn->prepare("INSERT INTO users (FirstName, LastName, Email, Password) VALUES
-                              (:fname, :lname, :email, :password)");
-$password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-$insert->execute(array(
-    ':fname' => $_POST['fname'],
-    ':lname' => $_POST['lname'],
-    ':email' => $_POST['email'],
-    ':password' => $password,
-));
-//print ($_POST['fname'].$_POST['lname'].$_POST['email'].$_POST['password']);
-//echo "You successfully signed up!";
+
+$database = db_conn();
+$database->SignUp($_POST['fname'], $_POST['lname'], $_POST['email'], $_POST['password']);
+$uid = $database->lastInsertId();
 session_start();
 $_SESSION["username"] = $_POST['fname'];
+$_SESSION["id"] = $uid;
 header('Location: ../userpage.html.php');
-
 
 
 
