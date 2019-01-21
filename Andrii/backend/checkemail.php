@@ -1,10 +1,8 @@
 <?php
 
-require '../classes/Database.php';
-require 'evn_vars.php';
+require 'db_conn.php';
 
-$conn = Database::connect(DBcreditals());
-
+$conn = db_conn();
 $select = $conn->selectAllEmail();
 foreach ($select as $row) {
     //echo $row[0]."\n";

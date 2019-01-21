@@ -1,10 +1,10 @@
 <?php
 
-require '../classes/Database.php';
-require 'evn_vars.php';
+require 'db_conn.php';
+//require 'evn_vars.php';
 
 
-$database = Database::connect(DBcreditals());
+$database = db_conn();
 $email = $_POST['email'];
 $select = $database->LogIn($email);
 if (password_verify($_POST['password'], $select[0])) {

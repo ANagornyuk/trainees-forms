@@ -24,10 +24,13 @@ class Userpage
     </span>';
         $block = '<header>
         <span>Hello, <span style="color: fuchsia"> %s </span>!</span>
-         %s 
+         %s
         </header>';
 
         echo sprintf($block, $this->fetch['FirstName'],  $logout);
+//        require './templates/block_hello.php';
+// return $this->fetch['FirstName'];
+
     }
 
     public function printCreditals(){

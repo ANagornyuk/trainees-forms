@@ -10,11 +10,12 @@
     <div class="cont">
         <?php
         require 'classes/Userpage.php';
-        require 'classes/Database.php';
-        require 'backend/evn_vars.php';
+        require 'backend/db_conn.php';
 
-        $db_conn = Database::connect(DBcreditals());
+        $db_conn = db_conn();
         $userpage = new Userpage($db_conn);
+
+
         $userpage->printHello();
         $userpage->printUserlogo();
         $userpage->printCreditals();
